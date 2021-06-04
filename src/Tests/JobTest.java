@@ -7,6 +7,7 @@ import org.launchcode.techjobs_oo.*;
 import static org.junit.Assert.*;
 
 public class JobTest {
+
     Job job1;
     Job job2;
 
@@ -18,13 +19,12 @@ public class JobTest {
 
     @Test
     public void testSettingJobId() {
-        assertEquals(1, job1.getId());
-        assertEquals(2, job2.getId());
+        assertEquals(job1.getId(),job2.getId(),1);
         assertFalse(job1.equals(job2));
     }
 
     @Test
-    public void testJobConstructorSetAllFileds() {
+    public void testJobConstructorSetAllFields() {
         Job job3 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
         assertEquals("Product tester", job3.getName());
         assertEquals("ACME", job3.getEmployer().toString());
@@ -32,7 +32,6 @@ public class JobTest {
         assertEquals("Quality control", job3.getPositionType().toString());
         assertEquals("Persistence", job3.getCoreCompetency().toString());
         assertTrue(job3 instanceof Job);
-
     }
 
 
@@ -59,16 +58,16 @@ public class JobTest {
     }
     @Test
     public void testToStringEmptyJobName(){
-        Job testjob1 = new Job("", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        Job testjob = new Job("", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
         String dataNotAvailable = "Data Not Available";
-;        assertEquals("\nId: " + testjob1.getId() +  " " +
+;        assertEquals("\nId: " + testjob.getId() +  " " +
                         "\nName: " + dataNotAvailable + " " +
-                        "\nEmployer: " + testjob1.getEmployer() + " " +
-                        "\nLocation: " + testjob1.getLocation() + " " +
-                        "\nPosition Type: " + testjob1.getPositionType() + " " +
-                        "\nCore Competency: " +testjob1.getCoreCompetency() + " " +
+                        "\nEmployer: " + testjob.getEmployer() + " " +
+                        "\nLocation: " + testjob.getLocation() + " " +
+                        "\nPosition Type: " + testjob.getPositionType() + " " +
+                        "\nCore Competency: " +testjob.getCoreCompetency() + " " +
                         "\n"
-                ,testjob1.toString());
+                ,testjob.toString());
     }
 
 
@@ -125,4 +124,7 @@ public class JobTest {
                         "\n"
                 ,testjob.toString());
     }
+
+
+
 }
